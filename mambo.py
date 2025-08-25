@@ -6,7 +6,7 @@ from ffpyplayer.player import MediaPlayer
 import cv2
 
 def play_vid():
-    video_path = 'C:\\Users\\renzd\\Downloads\\speen.mp4'
+    video_path = 'C:\\Users\\renzd\\OneDrive\\Desktop\\Documents\\Mambo\\speen.mp4'
     mam = cv2.VideoCapture(video_path)
     player = MediaPlayer(video_path)
     start_time = time.time()
@@ -15,6 +15,9 @@ def play_vid():
         if not ret:
             break
 
+     # Resize video window (example: 800x600)
+        frame = cv2.resize(frame, (800, 1000))
+        
         audio_frame, val = player.get_frame()
         if val != 'eof' and audio_frame is not None:
             img, t = audio_frame
@@ -38,7 +41,7 @@ def start_video():
 #tkinter UI
 
 window = Tk()
-photo=PhotoImage(file='C:\\Users\\renzd\\OneDrive\\Pictures\\program\\mambos.png')
+photo=PhotoImage(file='C:\\Users\\renzd\\OneDrive\\Desktop\\Documents\\Mambo\\mamboz.png')
 window.title('Mambo spin')
 button = Button(window,
                 text="click me to see mambo spin",
